@@ -4,12 +4,13 @@ const dotenv = require('dotenv')
 const cors = require('cors')
 
 const subscriptionRoutes = require('./apis/subscriptionRoutes')
-const dataRoutes = require('./apis/dataRoutes')
+const dataRoutes = require('./apis/foodItemsRoutes')
 
 const app = express()
 app.use(express.json())
 dotenv.config()
 mongoose.connect(process.env.DB_URI)
+
 app.use(cors({origin:'*'}));
 app.use('/api', subscriptionRoutes)
 app.use('/api', dataRoutes)

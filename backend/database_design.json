@@ -1,0 +1,185 @@
+{
+    "modelName": "New Model",
+    "collections": [
+        {
+            "collectionName": "FoodMetaData",
+            "type": "object",
+            "properties": [
+                {
+                    "name": "Name",
+                    "hackoladeMeta": {},
+                    "isActivated": true,
+                    "type": "string",
+                    "GUID": "93258963-0044-4893-beb7-8ff25aa7aab5",
+                    "error": {}
+                }
+            ],
+            "definitions": {
+                "type": "definitions",
+                "properties": [],
+                "GUID": "2a8c217b-9284-4e32-b474-ffb7036c4982"
+            },
+            "isActivated": true,
+            "additionalProperties": false,
+            "validationLevel": "Off",
+            "validationAction": "Warn",
+            "storageEngineName": "WiredTiger",
+            "collectionUsers": [],
+            "indexes": [],
+            "collation": {},
+            "sharding": {
+                "unique": true,
+                "collation": "null"
+            },
+            "GUID": "fd7c2c27-09b6-4cd8-b22d-052349968137",
+            "bucketId": "68542b61-d820-4895-9ecd-3662b27341a1"
+        },
+        {
+            "collectionName": "Meals",
+            "type": "object",
+            "properties": [],
+            "definitions": {
+                "type": "definitions",
+                "properties": [],
+                "GUID": "f4da397b-4587-475f-be2e-03f77e2c95fb"
+            },
+            "isActivated": true,
+            "additionalProperties": false,
+            "validationLevel": "Off",
+            "validationAction": "Warn",
+            "storageEngineName": "WiredTiger",
+            "collectionUsers": [],
+            "indexes": [],
+            "collation": {},
+            "sharding": {
+                "unique": true,
+                "collation": "null"
+            },
+            "GUID": "299f0de1-bd51-4340-a980-4e71c5a8a155",
+            "bucketId": "68542b61-d820-4895-9ecd-3662b27341a1"
+        }
+    ],
+    "buckets": [
+        {
+            "name": "MealFind",
+            "type": "bucket",
+            "collectionIds": [
+                "fd7c2c27-09b6-4cd8-b22d-052349968137",
+                "299f0de1-bd51-4340-a980-4e71c5a8a155"
+            ],
+            "backgroundColor": {
+                "r": 216,
+                "g": 0,
+                "b": 115,
+                "a": 1
+            },
+            "show": true,
+            "isActivated": true,
+            "GUID": "68542b61-d820-4895-9ecd-3662b27341a1"
+        }
+    ],
+    "views": [],
+    "relationships": [],
+    "users": [],
+    "diagramViews": [],
+    "idToNameHashTable": {
+        "68542b61-d820-4895-9ecd-3662b27341a1": "MealFind",
+        "fd7c2c27-09b6-4cd8-b22d-052349968137": "FoodMetaData",
+        "93258963-0044-4893-beb7-8ff25aa7aab5": "Name",
+        "299f0de1-bd51-4340-a980-4e71c5a8a155": "Meals"
+    },
+    "definitions": {
+        "type": "definitions",
+        "properties": [],
+        "GUID": "8c52cf41-3477-4e31-9847-bc29b61aeda0"
+    },
+    "polyglotDefinitions": {
+        "type": "polyglotDefinitions",
+        "properties": [],
+        "GUID": "72bccfc4-9cfd-4ceb-bbfb-feb2489a7ea5"
+    },
+    "externalDefinitions": {
+        "type": "externalDefinitions",
+        "properties": [],
+        "GUID": "10dbc7ed-1e39-48c3-bc94-2f2a6075bd98"
+    },
+    "sources": [],
+    "decorativeSymbols": [],
+    "dbVersion": "v5.0",
+    "dbVendor": "MongoDB",
+    "appTarget": "MONGODB",
+    "creationTS": "2023-02-12T19:18:36.121Z",
+    "GUID": "9ab583dd-93ea-4573-bfdc-c6f45d6bc948",
+    "isLineageEnabled": false,
+    "lastModifTS": "2023-02-12T19:26:33.248Z",
+    "persistenceSchemaVersion": "6",
+    "isCreatedByPlugin": true,
+    "pluginInformation": {
+        "pluginEngineVersion": "1.0.0"
+    },
+    "applicationInformation": {
+        "version": "6.9.0"
+    },
+    "settings": {
+        "centralPane": {
+            "dbLevel": {
+                "erd": [
+                    {
+                        "GUID": "fd7c2c27-09b6-4cd8-b22d-052349968137",
+                        "x": 178,
+                        "y": 142,
+                        "width": 182,
+                        "height": 51,
+                        "color": {}
+                    },
+                    {
+                        "GUID": "299f0de1-bd51-4340-a980-4e71c5a8a155",
+                        "x": 149,
+                        "y": 195,
+                        "width": 155,
+                        "height": 100,
+                        "color": {}
+                    }
+                ],
+                "erdDefinitions": {
+                    "erd": [],
+                    "rootPath": [],
+                    "entities": [],
+                    "decorativeSymbols": []
+                },
+                "buckets": [
+                    {
+                        "x": 109,
+                        "y": 102,
+                        "GUID": "68542b61-d820-4895-9ecd-3662b27341a1"
+                    }
+                ],
+                "collapsedNodes": [],
+                "activeRelationship": "",
+                "activeRelationshipFields": {
+                    "childField": [],
+                    "parentField": []
+                },
+                "selectedCollections": [],
+                "displayColorPicker": false,
+                "graphView": {
+                    "erd": [],
+                    "buckets": [],
+                    "decorativeSymbols": [],
+                    "forceLayout": true,
+                    "defaultLinkLength": 300
+                },
+                "diagramViews": [],
+                "decorativeSymbols": [],
+                "nestedCollectionsLayout": "horizontal",
+                "options": []
+            },
+            "collectionLevel": {},
+            "changed": false
+        },
+        "dtDiagram": {
+            "collapsedNodes": [],
+            "shouldDistributeCollections": false
+        }
+    }
+}
