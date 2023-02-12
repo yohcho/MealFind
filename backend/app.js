@@ -1,17 +1,17 @@
-const express = require('express');
-const scrape = require('./scraper')
+const express = require('express')
+const mongoose = require("mongoose")
+const dotenv = require('dotenv')
+const cors = require('cors')
 
-const app = express();
+const subscriptionRoutes = require('./apis/subscriptionRoutes')
+const dataRoutes = require('./apis/dataRoutes')
 
-app.use((req, res, next) => {
-  res.header('Access-Control-Allow-Origin', '*');
-  next();
-});
+const app = express()
+app.use(express.json())
+dotenv.config()
+mongoose.connect(process.env.DB_URI)
+app.use(cors({origin:'*'}));
+app.use('/api', subscriptionRoutes)
+app.use('/api', dataRoutes)
 
-app.get('/api/scrape', async (req, res) => {
-    const results = await scrape()
-    res.send(results)
-});
-
-const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => {});
+app.listen(5000, () => {});

@@ -14,6 +14,7 @@ const diningHalls = [
 const scrape = async()=>{
     try{
         const all = {}
+        const allMeals = []
         for(const diningHall of diningHalls){
             const url = `https://dining.umich.edu/menus-locations/dining-halls/${diningHall}/?menuDate=`
             const byDiningHall = []
@@ -30,15 +31,19 @@ const scrape = async()=>{
                     const set = []
                     items.each(function(){
                         set.push(this.children[0].data.trim())
+                        allMeals.push({
+                            name:this.children[0].data.trim(),
+                            date:today.toISOString().split('T')[0],
+                            location:diningHall
+                        })
                     })
                     byDay.push(set)
                 })
                 byDiningHall.push(byDay)
             }
-            console.log(diningHall)
             all[diningHall] = byDiningHall
         }
-        return all
+        return allMeals
     }
     catch(error){
         console.log(error)
