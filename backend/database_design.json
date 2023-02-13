@@ -2,15 +2,78 @@
     "modelName": "New Model",
     "collections": [
         {
-            "collectionName": "FoodMetaData",
+            "collectionName": "foodItem",
             "type": "object",
             "properties": [
                 {
-                    "name": "Name",
+                    "name": "name",
                     "hackoladeMeta": {},
                     "isActivated": true,
                     "type": "string",
                     "GUID": "93258963-0044-4893-beb7-8ff25aa7aab5",
+                    "error": {}
+                },
+                {
+                    "name": "availability",
+                    "hackoladeMeta": {},
+                    "isActivated": true,
+                    "type": "array",
+                    "properties": [
+                        {
+                            "hackoladeMeta": {},
+                            "isActivated": true,
+                            "type": "document",
+                            "properties": [
+                                {
+                                    "hackoladeMeta": {},
+                                    "isActivated": true,
+                                    "type": "string",
+                                    "GUID": "1a35c9c5-b9f7-45bc-887b-093775e468f9",
+                                    "name": "location",
+                                    "error": {}
+                                },
+                                {
+                                    "name": "date",
+                                    "hackoladeMeta": {},
+                                    "isActivated": true,
+                                    "type": "date",
+                                    "primaryKey": false,
+                                    "GUID": "670e833a-cbee-42ed-b50b-5953e5beec63",
+                                    "error": {}
+                                },
+                                {
+                                    "name": "course",
+                                    "hackoladeMeta": {},
+                                    "isActivated": true,
+                                    "type": "string",
+                                    "GUID": "f753cdc7-6195-4907-9db7-bf25d3bae1c8",
+                                    "error": {}
+                                }
+                            ],
+                            "additionalProperties": false,
+                            "GUID": "1710a0b9-9b7c-4f71-9b18-88b253979239",
+                            "arrayItem": true,
+                            "arrayParentType": "array"
+                        }
+                    ],
+                    "additionalItems": true,
+                    "GUID": "a0f878dc-4d00-4435-b96b-0f7aad72e910",
+                    "error": {}
+                },
+                {
+                    "name": "queryCount",
+                    "hackoladeMeta": {},
+                    "isActivated": true,
+                    "type": "numeric",
+                    "GUID": "9c470f5a-a9ea-4637-860a-b51e781bc155",
+                    "error": {}
+                },
+                {
+                    "name": "subsCount",
+                    "hackoladeMeta": {},
+                    "isActivated": true,
+                    "type": "numeric",
+                    "GUID": "fcc6e9fa-2f7d-4d7c-826f-a2b20ea9d836",
                     "error": {}
                 }
             ],
@@ -35,13 +98,30 @@
             "bucketId": "68542b61-d820-4895-9ecd-3662b27341a1"
         },
         {
-            "collectionName": "Meals",
+            "collectionName": "subscription",
             "type": "object",
-            "properties": [],
+            "properties": [
+                {
+                    "name": "email",
+                    "hackoladeMeta": {},
+                    "isActivated": true,
+                    "type": "string",
+                    "GUID": "497d3b85-f694-47c6-b378-04b382bdae2f",
+                    "error": {}
+                },
+                {
+                    "name": "foodItemName",
+                    "hackoladeMeta": {},
+                    "isActivated": true,
+                    "type": "string",
+                    "GUID": "027f1b1d-a6a3-4c1b-9732-055283aabecf",
+                    "error": {}
+                }
+            ],
             "definitions": {
                 "type": "definitions",
                 "properties": [],
-                "GUID": "f4da397b-4587-475f-be2e-03f77e2c95fb"
+                "GUID": "ff6931f9-85a8-4e00-a3c7-47ec5771b497"
             },
             "isActivated": true,
             "additionalProperties": false,
@@ -55,7 +135,7 @@
                 "unique": true,
                 "collation": "null"
             },
-            "GUID": "299f0de1-bd51-4340-a980-4e71c5a8a155",
+            "GUID": "16c0ab0a-6b5c-448d-b901-989b52ec2cf1",
             "bucketId": "68542b61-d820-4895-9ecd-3662b27341a1"
         }
     ],
@@ -65,7 +145,7 @@
             "type": "bucket",
             "collectionIds": [
                 "fd7c2c27-09b6-4cd8-b22d-052349968137",
-                "299f0de1-bd51-4340-a980-4e71c5a8a155"
+                "16c0ab0a-6b5c-448d-b901-989b52ec2cf1"
             ],
             "backgroundColor": {
                 "r": 216,
@@ -84,9 +164,17 @@
     "diagramViews": [],
     "idToNameHashTable": {
         "68542b61-d820-4895-9ecd-3662b27341a1": "MealFind",
-        "fd7c2c27-09b6-4cd8-b22d-052349968137": "FoodMetaData",
-        "93258963-0044-4893-beb7-8ff25aa7aab5": "Name",
-        "299f0de1-bd51-4340-a980-4e71c5a8a155": "Meals"
+        "fd7c2c27-09b6-4cd8-b22d-052349968137": "foodItem",
+        "93258963-0044-4893-beb7-8ff25aa7aab5": "name",
+        "a0f878dc-4d00-4435-b96b-0f7aad72e910": "availability",
+        "1a35c9c5-b9f7-45bc-887b-093775e468f9": "location",
+        "670e833a-cbee-42ed-b50b-5953e5beec63": "date",
+        "f753cdc7-6195-4907-9db7-bf25d3bae1c8": "course",
+        "16c0ab0a-6b5c-448d-b901-989b52ec2cf1": "subscription",
+        "497d3b85-f694-47c6-b378-04b382bdae2f": "email",
+        "9c470f5a-a9ea-4637-860a-b51e781bc155": "queryCount",
+        "fcc6e9fa-2f7d-4d7c-826f-a2b20ea9d836": "subsCount",
+        "027f1b1d-a6a3-4c1b-9732-055283aabecf": "foodItemName"
     },
     "definitions": {
         "type": "definitions",
@@ -111,7 +199,7 @@
     "creationTS": "2023-02-12T19:18:36.121Z",
     "GUID": "9ab583dd-93ea-4573-bfdc-c6f45d6bc948",
     "isLineageEnabled": false,
-    "lastModifTS": "2023-02-12T19:26:33.248Z",
+    "lastModifTS": "2023-02-12T22:07:17.663Z",
     "persistenceSchemaVersion": "6",
     "isCreatedByPlugin": true,
     "pluginInformation": {
@@ -128,16 +216,16 @@
                         "GUID": "fd7c2c27-09b6-4cd8-b22d-052349968137",
                         "x": 178,
                         "y": 142,
-                        "width": 182,
-                        "height": 51,
+                        "width": 213,
+                        "height": 177,
                         "color": {}
                     },
                     {
-                        "GUID": "299f0de1-bd51-4340-a980-4e71c5a8a155",
-                        "x": 149,
-                        "y": 195,
-                        "width": 155,
-                        "height": 100,
+                        "GUID": "16c0ab0a-6b5c-448d-b901-989b52ec2cf1",
+                        "x": 180,
+                        "y": 344,
+                        "width": 204,
+                        "height": 69,
                         "color": {}
                     }
                 ],
@@ -149,7 +237,7 @@
                 },
                 "buckets": [
                     {
-                        "x": 109,
+                        "x": 138,
                         "y": 102,
                         "GUID": "68542b61-d820-4895-9ecd-3662b27341a1"
                     }

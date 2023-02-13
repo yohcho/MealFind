@@ -1,0 +1,86 @@
+.App {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding-bottom: 150px;
+}
+
+.searchbar {
+    padding: 0 5%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    height: 20vh;
+    width: 90%;
+}
+
+.searchbar-icon {
+    width: 10%;
+    aspect-ratio: 1 / 1;
+    border: 1px solid black;
+    margin-right: 30px;
+}
+
+.searchbar > input {
+    height: 5vh;
+    font-size: 1.5vw;
+    width: 30%;
+    padding: 5px 25px;
+    border-radius: 30px;
+}
+
+.searchbar-filter {
+    display: flex;
+    width: 50%;
+    border: 1px solid black;
+    height: 90%;
+    padding: 5px;
+}
+
+.display {
+    display: grid;
+    padding: 0 4%;
+    margin-top: 20px;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 1rem;
+}
+
+.display-item {
+    border: 1px solid black;
+    position: relative;
+    height: 10vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.display-item-view {
+    position: relative;
+    width: fit-content;
+    padding-top: 5px;
+}
+
+.display-item-availability {
+    display: none;
+    position: absolute;
+    left: -150%;
+    background-color: #f9f9f9;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    padding: 12px 16px;
+    z-index: 1;
+    width: fit-content;
+    overflow-y: auto;
+    overflow-x: hidden;
+    max-height: 20vh;
+}
+
+.display-item-availability > p {
+    width: fit-content;
+    white-space: nowrap;
+}
+
+.display-item-view:hover .display-item-availability {
+    display: block;
+}

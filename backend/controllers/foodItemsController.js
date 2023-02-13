@@ -5,17 +5,13 @@ const Food_Items = require('../models/foodItemsSchema')
 
 //direct functions
 const getData = async(req,res) => {
-    const data = await Food_Items.find({})
-    //await initializeDatabase()
+    const data = await Food_Items.find({availability: {$ne: []}})
     res.status(200).json({data:data})
 }
 
 
-
-
 //helper functions
 const initializeDatabase = async() => {
-    console.log("Initializing Database")
     const diningHalls = [
         "bursley",
         "east-quad",
@@ -27,12 +23,12 @@ const initializeDatabase = async() => {
     ]
     let counter = 0;
     const scrapedData = new Map()
-    for(const diningHall of diningHalls){
-        const url = `https://dining.umich.edu/menus-locations/dining-halls/${diningHall}/?menuDate=`
-        for(let i = 0; i<15; i++){
+    for(let i = 0; i<15; i++){
+        for(const diningHall of diningHalls){
             const today = new Date()
+            today.setHours(today.getHours()-5)
             today.setDate(today.getDate()+i)
-            const currUrl = url + today.toISOString().split('T')[0]
+            const currUrl = `https://dining.umich.edu/menus-locations/dining-halls/${diningHall}/?menuDate=${today.toISOString().split('T')[0]}`
             const res = await axios.get(currUrl)
             const $=cheerio.load(res.data)
             const courses = $(".calhours li")
@@ -40,8 +36,12 @@ const initializeDatabase = async() => {
             courses.each(function(){
                 const name = $(this).find(".calhours-title").text()
                 const time = $(this).find(".calhours-times").text()
+                if(name==="" && time==="")
+                    return false
                 coursesList.push(`${name}: ${time}`)
-            })            
+            })
+            if(coursesList.length===0)
+                continue
             const sections = $(".courses")
             let j = 0;
             sections.each(async function(){
@@ -58,24 +58,23 @@ const initializeDatabase = async() => {
                     }
                     else{
                         scrapedData.set(name, [{
-                                date:today.toISOString().split('T')[0],
-                                location:diningHall,
-                                course:coursesList[j]
-                            }]
-                        )
+                            date:today.toISOString().split('T')[0],
+                            location:diningHall,
+                            course:coursesList[j]
+                        }])
                     }
                 })
-                i++;
+                j++;
             })
         }
     }
+    await Food_Items.deleteMany({})
     for(let [key,value] of scrapedData){
         await addNewMeal({
             name:key,
             availability:value
         })
     }
-    console.log("Finished",counter)
 }
 
 const addNewMeal = async (meal)=>{
